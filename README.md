@@ -1,16 +1,106 @@
-# React + Vite
+# 🎬 Movie Hub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+https://movie-tracker-mevjj8igl-matt-lamberts-projects-5e480e01.vercel.app/
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
 
-## React Compiler
+Movie Hub is a React-based web app that allows users to browse, search, and save their favorite movies. It integrates with the TMDB API to display real-time movie data and demonstrates core front-end development concepts like state management, API handling, and conditional rendering.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* Browse popular movies on load
+* Search for movies with dynamic results
+* Flip card UI to view additional movie details
+* Login system (client-side)
+* Add/remove favorites
+* Favorites persist during session
+* Responsive layout for desktop and mobile
+
+---
+
+## Tech Stack
+
+* **React (Vite)**
+* **JavaScript (ES6+)**
+* **CSS**
+* **TMDB API**
+* **Vercel (deployment)**
+
+---
+
+## Key Concepts Demonstrated
+
+* API integration using fetch
+* State management with `useState` and `useEffect`
+* Conditional rendering based on login state
+* Event handling and component interaction
+* Separation of concerns (UI vs logic)
+* Environment variables for secure API handling
+
+---
+
+## Project Structure
+
+```
+src/
+  ├── App.jsx
+  ├── MovieCard.jsx
+  ├── login.jsx
+  ├── main.jsx
+  ├── App.css
+  ├── index.css
+```
+
+---
+
+## Getting Started
+
+Clone the repo:
+
+```
+git clone https://github.com/Mattlambo/movie-tracker-app.git
+cd movie-tracker-app
+npm install
+npm run dev
+```
+
+---
+
+## Environment Variables
+
+Create a `.env` file in the root:
+
+```
+VITE_TMDB_TOKEN=your_tmdb_token_here
+```
+
+---
+
+## What I Learned
+
+* How to structure a React project using Vite
+* Handling asynchronous API calls and loading states
+* Managing UI state vs application state
+* Debugging environment variable issues in production
+* Deploying a React app with Vercel
+
+---
+
+## Future Improvements
+
+* Persist favorites with localStorage
+* Add loading skeleton UI
+* Improve error handling for failed API calls
+* Add pagination or infinite scroll
+* Enhance authentication flow
+
+---
+
+## Author
+
+Matt Lambo
+GitHub: https://github.com/Mattlambo
