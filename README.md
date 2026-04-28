@@ -15,7 +15,7 @@ Movie Hub is a React-based web app that allows users to browse, search, and save
 * Browse popular movies on load
 * Search for movies with dynamic results
 * Flip card UI to view additional movie details
-* Login system (client-side)
+* Login system (client-side authentication simulation)
 * Add/remove favorites
 * Favorites persist during session
 * Responsive layout for desktop and mobile
