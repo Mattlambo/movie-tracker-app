@@ -1,6 +1,6 @@
 # 🎬 Movie Hub
 
-https://movie-tracker-mevjj8igl-matt-lamberts-projects-5e480e01.vercel.app/
+https://movie-tracker-app-chi.vercel.app/
 
 ---
 
