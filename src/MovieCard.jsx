@@ -1,5 +1,5 @@
 import greenCheck from "./assets/greenCheck.svg";
-import redCheck from "./assets/redcheck.svg";
+import redCheck from "./assets/redCheck.svg";
 import { useState } from 'react';
 
 function MovieCard({
