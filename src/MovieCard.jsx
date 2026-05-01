@@ -1,5 +1,5 @@
-import greenCheck from "./assets/greencheck.svg";
-import redCheck from "./assets/redcheck.svg";
+import greencheck from "./assets/greencheck.svg";
+import redcheck from "./assets/redcheck.svg";
 import { useState } from 'react';
 
 function MovieCard({
@@ -47,9 +47,9 @@ function MovieCard({
           {isLoggedIn && (
             <button className="favorite-btn" onClick={handleFavoriteClick}>
               {isFavorite ? (
-                  <img src={redCheck} alt="favorited" />
+                  <img src={redcheck} alt="favorited" />
               ) : (
-                    <img src={greenCheck} alt="favorited" />
+                    <img src={greencheck} alt="favorited" />
               )}
             </button>
 
