@@ -143,6 +143,7 @@ body {
   max-width: 1200px;
   margin: 2rem auto 0;
   padding: 0 2rem;
+
 }
 
 .favorites-section h2,
@@ -167,28 +168,17 @@ body {
 
 .favorites-grid .card-front  {
   width: 250px;
-  margin-bottom: 45px;
   border-radius: 30px;
   height: 500px;
-}
-
-.favorites-section .favorite-btn {
-  background-color: white;
+  border: 2px solid red;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
 }
 
 .favorites-grid .poster {
   height: 350px;
 }
-
-.favorites-grid .card-front .favorite-btn {
-  height: 25px;
-  display: flex;
-  place-items: center;
-  justify-content: center;
-  width: 60px;
-  color: black;
-}
-
 
 /* STATES */
 .loading-text,
@@ -208,10 +198,15 @@ body {
   cursor: pointer;
   width: 260px;
   transition: transform 0.2s ease;
-  height: 400px;
-  margin-bottom: 110px;
+  min-height: 420px;
+  margin-bottom: 10px;
+  overflow: hidden;
 }
 
+.favorites-grid .card-front {
+  height: 420px;
+
+}
 .movie-card:hover {
   transform: scale(1.04);
 }
@@ -219,7 +214,7 @@ body {
 .card-inner {
   position: relative;
   width: 100%;
-  min-height: 500px;
+  min-height: 450px;
   transition: transform 0.6s;
   transform-style: preserve-3d;
 }
@@ -232,6 +227,7 @@ body {
 .card-back {
   display: flex;
   flex-direction: column;
+  height: 100%;
   align-items:  center;
   position: absolute;
   inset: 0;
@@ -240,6 +236,8 @@ body {
   overflow: hidden;
   background: #1b1b1b;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  border: 2px solid red;
 }
 
 .card-back {
@@ -252,7 +250,7 @@ body {
 
 .poster {
   width: 100%;
-  height: 350px;
+  height: 320px;
   object-fit: cover;
   display: block;
 }
@@ -263,8 +261,7 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 5px;
-  height: 1000px;
+  padding-bottom: 15px;
 }
 
 .movie-info h3 {
@@ -275,24 +272,22 @@ body {
 }
 
 .rating {
-  display: inline-block;
-  background-color: yellow;
-  color: black;
-  font-weight: 700;
-  padding: 0.4rem 0.6rem;
-  border-radius: 90px;
-  font-size: 1rem;
-  margin-top: auto;
-  margin-bottom: 10px;
-
+ position: absolute;
+ left: 10px;
+  bottom: 5px;
+  color: yellow;
+  font-size: 20px;
+  background: none;
 }
 
 .favorite-btn {
-  display: flex;
-  justify-content: center;
-  place-items: center;
+  position: absolute;
+  right: 1px;
+  bottom: 5px;
   height: 15px;
   border: none;
+  display: flex;
+  justify-content: center;
   background: white;
   color: #111;
   padding: 0.65rem 0.85rem;
@@ -301,6 +296,7 @@ body {
   font-weight: 700;
   width: 70px;
   margin-bottom: 10px;
+  place-items: center;
 }
 
 
@@ -364,17 +360,14 @@ footer {
   .favorites-grid,
   .movie-grid {
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-
   }
-
-
 
   .poster {
     height: 280px;
   }
 
   .card-inner {
-    min-height: 480px;
+    height: 680px;
   }
 }
 
@@ -383,4 +376,55 @@ footer {
   padding-bottom: 1.5rem;
 }
 
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-top-color: #3498db; /* Spinner color */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
 
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.favorite-btn img {
+  width: 30px;
+  height: 30px;
+}
+
+.favorite-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.poster,
+.poster-fallback {
+  width: 100%;
+  height: 340px;
+  border-radius: 10px 10px 0 0;
+}
+
+.poster {
+  object-fit: cover;
+}
+
+.poster-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #222;
+  color: #aaa;
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.movieAPI {
+  color: white;
+  margin-left: 5px;
+  font-size:12px;
+  font-weight: lighter;
+}

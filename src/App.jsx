@@ -1,23 +1,19 @@
-//imports react hooks and custom components
-
 import { useState, useEffect } from 'react';
 import './App.css';
 import MovieCard from './MovieCard';
 import Login from "./login.jsx";
 
-// This pulls your secret token from the .env file
+
 const API_TOKEN = import.meta.env.VITE_TMDB_TOKEN;
 
-//  creates variables linking to various APIs
 const IMG_PATH = "https://image.tmdb.org/t/p/w500";
 const DISCOVER_URL = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc";
 const SEARCH_URL = "https://api.themoviedb.org/3/search/movie?query=";
 
 
+//state
+
 function App() {
-  //Local State (UI behavior)
-  //useState => tells React this component needs to "remember" some information.
-  //[] an empty array // the hook returns an array with 2 elements =>movies (State Variable->holds current value), setMovies (The Setter Function-the way to update the value)
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -25,19 +21,18 @@ function App() {
   const [user, setUser] = useState(null);
   const [favorites, setFavorites] = useState([]);
 
-  //login handler
+  //handlers
+
   const handleLogin = (username) => {
     setUser(username);
     localStorage.setItem("moviehub.user", username);
   };
 
-  //logout handler
   const handleLogout = () => {
     setUser(null);
     localStorage.removeItem("moviehub.user");
   };
 
-  //toggle favorite handler
   const handleToggleFavorite = (movie) => {
     if (!user) return;
 
@@ -54,7 +49,6 @@ function App() {
     );
   };
 
-  //another React Hook that handles side effects.
   useEffect(() => {
     const savedUser = localStorage.getItem("moviehub.user");
     if (savedUser) {
@@ -92,6 +86,9 @@ function App() {
         });
 
         if (!response.ok) {
+          if (response.status === 401) throw new Error("Invalid API key");
+          if (response.status === 429) throw new Error("Too many requests. Try again later");
+          if (response.status === 500) throw new Error("Server error. Please try again later");
           throw new Error("Request failed");
         }
 
@@ -148,7 +145,7 @@ function App() {
           <h2>Your Favorites</h2>
 
           {favorites.length === 0 ? (
-            <p className="empty-text">No favorites yet.</p>
+            <p className="empty-text">Add to favorites.</p>
           ) : (
             <div className="favorites-grid">
               {favorites.map((movie) => (
@@ -174,7 +171,7 @@ function App() {
         <h2>{searchTerm ? "Search Results" : "Popular Movies"}</h2>
 
         {isLoading ? (
-          <p className="loading-text">Loading Movies...</p>
+          <p className="spinner"> </p>
         ) : error ? (
           <p className="error-text">{error}</p>
         ) : movies.length === 0 ? (
@@ -189,7 +186,7 @@ function App() {
                 movie={movie}
                 title={movie.title}
                 rating={movie.vote_average}
-                posterUrl={movie.poster_path ? IMG_PATH + movie.poster_path : ""}
+                posterUrl={movie.poster_path ? `${IMG_PATH}${movie.poster_path}` : null}
                 overview={movie.overview}
                 isFavorite={favorites.some((fav) => fav.id === movie.id)}
                 onToggleFavorite={handleToggleFavorite}
@@ -200,7 +197,11 @@ function App() {
         )}
       </section>
 
-      <footer className="page-footer">2026 MovieHub.com</footer>
+      <footer className="page-footer">
+        <h3>Moviehub.com</h3>
+        <h5 className="movieAPI">Powered by TMDB API</h5>
+      </footer>
+
     </div>
   );
 }

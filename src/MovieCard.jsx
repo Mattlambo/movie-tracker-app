@@ -1,3 +1,5 @@
+import greenCheck from "./assets/greencheck.svg";
+import redCheck from "./assets/redcheck.svg";
 import { useState } from 'react';
 
 function MovieCard({
@@ -21,20 +23,34 @@ function MovieCard({
     onToggleFavorite(movie);
   };
 
+
   return (
     <div className={`movie-card ${isFlipped ? 'flipped' : ''}`} onClick={handleFlip}>
       <div className="card-inner">
         <div className="card-front">
-          <img src={posterUrl} alt={title} className="poster" />
+         {posterUrl ? (
+  <img src={posterUrl} alt={title} className="poster" />
+) : (
+  <div className="poster-fallback">
+    <span>No Poster Available</span>
+  </div>
+)}
+
 
           <div className="movie-info">
             <h3 className="movieTitle">{title}</h3>
-            <span className="rating">{rating.toFixed(1)}</span>
+              <span className="rating">{rating.toFixed(1)}</span>
+
+
           </div>
 
           {isLoggedIn && (
             <button className="favorite-btn" onClick={handleFavoriteClick}>
-              {isFavorite ? <span className="check">Remove</span> : "Add"}
+              {isFavorite ? (
+                  <img src={redCheck} alt="favorited" />
+              ) : (
+                    <img src={greenCheck} alt="favorited" />
+              )}
             </button>
 
           )}
@@ -46,6 +62,7 @@ function MovieCard({
         </div>
       </div>
     </div>
+
   );
 }
 
