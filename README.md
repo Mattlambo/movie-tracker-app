@@ -9,6 +9,14 @@ https://movie-tracker-app-chi.vercel.app/
 Movie Hub is a React-based web app that allows users to browse, search, and save their favorite movies. It integrates with the TMDB API to display real-time movie data and demonstrates core front-end development concepts like state management, API handling, and conditional rendering.
 
 ---
+## Screenshots
+<img width="1833" height="883" alt="image" src="https://github.com/user-attachments/assets/652cf5d0-0acb-415c-836b-f2cda4c187fb" />
+
+<img width="1692" height="827" alt="image" src="https://github.com/user-attachments/assets/ee165ac9-ab8f-4cc0-9fdd-d2e5d7458e77" />
+
+<img width="1869" height="899" alt="image" src="https://github.com/user-attachments/assets/0e23f6a6-2ccf-4c30-8da2-4c963b7f8e7e" />
+
+
 
 ## Features
 
@@ -93,8 +101,6 @@ VITE_TMDB_TOKEN=your_tmdb_token_here
 ## Future Improvements
 
 * Persist favorites with localStorage
-* Add loading skeleton UI
-* Improve error handling for failed API calls
 * Add pagination or infinite scroll
 * Enhance authentication flow
 
